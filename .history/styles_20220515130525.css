@@ -1,0 +1,25 @@
+.boxed {
+  width: 20rem;
+  height: 20rem;
+  background-image: linear-gradient(to right bottom, #00afed, #bae6f5);
+}
+
+.background {
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(to right bottom, #00afed, #bae6f5),
+    url("/unsplash1.jpg");
+  background-size: cover;
+}
+
+.title {
+  display: inline-block;
+  font-size: 3rem;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 2rem;
+  background-image: linear-gradient(to right bottom, #00afed, #e28ba5);
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}

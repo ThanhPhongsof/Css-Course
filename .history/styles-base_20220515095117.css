@@ -1,0 +1,6 @@
+.font {
+  /* khoàng cách giữa chữ ở trên và ở dưới cách xa nhau ko bị dính vào */
+  line-height: 1.5;
+  /* thuộc tính canh đều 2 bên */
+  text-align: justify;
+}
