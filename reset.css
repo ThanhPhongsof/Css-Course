@@ -122,3 +122,16 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.6rem;
+  font-weight: normal;
+  height: 2000px;
+  width: 100%;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
