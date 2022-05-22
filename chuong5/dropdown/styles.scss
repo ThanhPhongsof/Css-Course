@@ -1,0 +1,84 @@
+$primary: #42a7fe;
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+body {
+  background-color: #f3faff;
+}
+
+.dropdown {
+  width: 40rem;
+  margin: 2rem auto 0;
+  position: relative;
+  &__select {
+    padding: 2rem 2.5rem 2rem 4rem;
+    background-color: $primary;
+    color: #fff;
+    display: flex;
+    align-items: center;
+  }
+  &__text {
+    margin-left: 3.5rem;
+  }
+  &__icon {
+  }
+  &__caret {
+    margin-left: auto;
+  }
+  &__list {
+    width: 100%;
+    left: 0;
+    top: 100%;
+    margin-top: 3rem;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 0.4rem;
+    position: absolute;
+    background-color: #eee;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s linear;
+    &::before {
+      content: "";
+      @include size(2rem);
+      position: absolute;
+      border-radius: 0.3rem;
+      background-color: #eee;
+      top: 0;
+      right: 2rem;
+      transform: translateY(-50%) rotate(45deg);
+      z-index: -1;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      @include size(100%, 3rem);
+      background-color: transparent;
+      transform: translateY(-100%);
+    }
+  }
+  &__item {
+    padding: 2rem 2.5rem 2rem 4rem;
+    display: flex;
+    align-items: center;
+    transition: all 0.25s linear;
+    border-left: 3px solid transparent;
+    cursor: pointer;
+    &:not(:last-child) {
+      border-bottom: 1px solid #eee;
+    }
+    &:hover {
+      color: #777;
+      border-left-color: $primary;
+    }
+  }
+  &:hover {
+    .dropdown__list {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}

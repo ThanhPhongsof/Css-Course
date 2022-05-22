@@ -1,0 +1,9 @@
+$primary: #42a7fe;
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+body {
+  background-color: hsla(293, 83%, 81%, 0.25);
+}
