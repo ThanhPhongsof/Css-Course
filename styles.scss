@@ -1,9 +1,24 @@
 $primary: #42a7fe;
+$secondary: #00c899;
 @mixin size($width, $height: $width) {
   width: $width;
   height: $height;
 }
 
 body {
-  background-color: hsla(293, 83%, 81%, 0.25);
+  background-color: #fff;
 }
+
+@media screen and (max-width: 1023px) {
+}
+
+@media screen and (max-width: 767px) {
+}
+
+@media screen and (min-width: 1024) {
+}
+
+@media screen and (min-width: 1280) {
+}
+
+// 320 480 768 1024 1280 1366 1440 1600 1920
