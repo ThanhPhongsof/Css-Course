@@ -1,0 +1,209 @@
+$primary: #42a7fe;
+$secondary: #00c899;
+$warning: #fd9c84;
+$danger: #fc556f;
+$gradient: linear-gradient(to right, $warning, $danger);
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin maxWidth($value) {
+  @media screen and (max-width: $value) {
+    @content;
+  }
+}
+
+@mixin minWidth($value) {
+  @media screen and (min-width: $value) {
+    @content;
+  }
+}
+
+@mixin flexbox(
+  $align: flex-start,
+  $justify: flex-start,
+  $flex-direction: row,
+  $wrap: nowrap
+) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+  flex-direction: $flex-direction;
+  flex-wrap: $wrap;
+}
+
+.post {
+  padding: 2rem;
+  border-radius: 1rem;
+  background-color: #fff;
+  @include flexbox(stretch, space-between, row, wrap);
+  max-width: 100rem;
+  margin: 0 auto;
+  &__left,
+  &__right {
+    width: calc(50% - 1rem);
+  }
+  &__media {
+    height: 25rem;
+    position: relative;
+    margin-bottom: 3.5rem;
+  }
+  &__image {
+    @include size(100%);
+    object-fit: cover;
+    border-radius: 1rem;
+    &--small {
+      @include size(15rem, 10rem);
+      margin-right: 1.5rem;
+      flex-shrink: 0;
+    }
+  }
+  &__category {
+    position: absolute;
+    font-size: 1.2rem;
+    display: inline-block;
+    padding: 1rem;
+    border-radius: 2rem;
+    color: white;
+    background-image: $gradient;
+    top: 2rem;
+    left: 2rem;
+    z-index: 2;
+  }
+  &__icon {
+    position: absolute;
+    @include size(5rem);
+    @include flexbox(center, center);
+    color: white;
+    background-image: $gradient;
+    border-radius: 5rem;
+    bottom: 0;
+    right: 2rem;
+    transform: translateY(50%);
+    z-index: 2;
+  }
+  &-author {
+    @include flexbox(center);
+    color: #999;
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+    &__avartar {
+      @include size(4rem);
+      border-radius: 4rem;
+      object-fit: cover;
+      margin-right: 1rem;
+    }
+    &__name {
+      position: relative;
+      margin-right: 2.5rem;
+      padding-right: 2.5rem;
+      &:before {
+        content: "";
+        @include size(0.5rem);
+        border-radius: 1rem;
+        background-color: $danger;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+  }
+  &__date {
+    color: #999;
+    font-size: 1.4rem;
+  }
+  &__title {
+    font-weight: bold;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+    &--small {
+      font-size: 1.4rem;
+      margin-bottom: 0;
+    }
+  }
+  &__desc {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    color: #999;
+  }
+  &__item {
+    @include flexbox(center);
+    &:not(:last-child) {
+      padding-bottom: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid #eee;
+    }
+  }
+  &__content {
+    width: 100%;
+    flex-grow: 1;
+  }
+  &__link {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+@include maxWidth(767px) {
+  .post {
+    &__left,
+    &__right {
+      width: 100%;
+    }
+    &__left {
+      margin-bottom: 2.5rem;
+    }
+    &__image--small {
+      width: 10rem;
+      height: auto;
+    }
+    &__title {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-box-orient: vertical;
+      &--small {
+        font-size: 1.2rem;
+        line-height: 1.4;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
+
+@include minWidth(768px) {
+  .post {
+    &__left {
+      margin-bottom: 2.5rem;
+    }
+    &__image--small {
+      width: 10rem;
+      height: auto;
+    }
+    &__title {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-box-orient: vertical;
+      &--small {
+        font-size: 1.2rem;
+        line-height: 1.4;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1024) {
+}
+
+@media screen and (min-width: 1280) {
+}
+
+// 320 480 768 1024 1280 1366 1440 1600 1920

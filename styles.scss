@@ -1,18 +1,43 @@
 $primary: #42a7fe;
 $secondary: #00c899;
+$warning: #fd9c84;
+$danger: #fc556f;
+$gradient: linear-gradient(to right, $warning, $danger);
+
 @mixin size($width, $height: $width) {
   width: $width;
   height: $height;
 }
 
-body {
-  background-color: #fff;
+@mixin maxWidth($value) {
+  @media screen and (max-width: $value) {
+    @content;
+  }
 }
 
-@media screen and (max-width: 1023px) {
+@mixin minWidth($value) {
+  @media screen and (min-width: $value) {
+    @content;
+  }
 }
 
-@media screen and (max-width: 767px) {
+@mixin flexbox(
+  $align: flex-start,
+  $justify: flex-start,
+  $flex-direction: row,
+  $wrap: nowrap
+) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+  flex-direction: $flex-direction;
+  flex-wrap: $wrap;
+}
+
+@include maxWidth(767px) {
+}
+
+@include minWidth(768px) {
 }
 
 @media screen and (min-width: 1024) {

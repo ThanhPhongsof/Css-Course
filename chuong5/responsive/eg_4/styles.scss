@@ -1,0 +1,76 @@
+$primary: #42a7fe;
+$secondary: #00c899;
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin flexbox(
+  $align: flex-start,
+  $justify: flex-start,
+  $flex-direction: row,
+  $wrap: nowrap
+) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+  flex-direction: $flex-direction;
+  flex-wrap: $wrap;
+}
+
+.post {
+  padding: 2rem;
+  margin: 5rem auto;
+  max-width: 40rem;
+  background-color: #fff;
+  border-radius: 20px;
+  @include flexbox(center);
+  &__media {
+    width: 10rem;
+    height: 10rem;
+    border-radius: inherit;
+  }
+  &__content {
+    width: calc(100% - 10rem);
+  }
+}
+
+// flex-shrink : cho phép co giãn lại hay ko default :1 mặc định cho phép
+// flex-grow : cho phép giãn ra hay ko default : 0 mặc định ko cho
+
+@media screen and (max-width: 1023px) {
+}
+
+@media screen and (max-width: 767px) {
+  .author {
+    padding: 0 2rem;
+    flex-direction: column;
+    height: auto;
+    &__image,
+    &__content {
+      width: 100%;
+    }
+    &__image {
+      height: 20rem;
+      border-radius: 1rem 1rem 0 0;
+    }
+    &__content {
+      padding: 1rem;
+      border-radius: 0 0 1rem 1rem;
+    }
+    &__name {
+      font-size: 1.6rem;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+}
+
+@media screen and (min-width: 1024) {
+}
+
+@media screen and (min-width: 1280) {
+}
+
+// 320 480 768 1024 1280 1366 1440 1600 1920
