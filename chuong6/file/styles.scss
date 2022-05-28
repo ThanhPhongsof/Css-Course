@@ -34,30 +34,25 @@ $gradient: linear-gradient(to right, $warning, $danger);
   flex-wrap: $wrap;
 }
 
-.checkbox {
+.file {
   &__input {
     display: none;
-    &:checked + .checkbox__label {
-      background-color: $primary;
-      .checkbox__spin {
-        transform: translateX(6rem);
-      }
-    }
   }
+  @include size(3rem);
+  border-radius: 1rem;
+  border: 1px solid $danger;
+  background-color: rgba($warning, 0.5);
+  position: relative;
+  color: #fff;
   &__label {
-    display: inline-block;
-    @include size(10rem, 4rem);
-    background-color: #ccc;
-    border-radius: 5rem;
+    @include flexbox(center, center);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     cursor: pointer;
-    padding: 0.5rem;
-    transition: 0.25s linear;
-  }
-  &__spin {
-    @include size(4rem);
-    background-color: #fff;
-    border-radius: 4rem;
-    transition: 0.25s linear;
+    z-index: 2;
   }
 }
 

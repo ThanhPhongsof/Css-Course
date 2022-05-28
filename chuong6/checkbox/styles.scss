@@ -37,27 +37,37 @@ $gradient: linear-gradient(to right, $warning, $danger);
 .checkbox {
   &__input {
     display: none;
-    &:checked + .checkbox__label {
-      background-color: $primary;
-      .checkbox__spin {
-        transform: translateX(6rem);
-      }
+    &:checked + .checkbox__label:after {
+      opacity: 1;
+      visibility: visible;
     }
   }
   &__label {
-    display: inline-block;
-    @include size(10rem, 4rem);
-    background-color: #ccc;
-    border-radius: 5rem;
-    cursor: pointer;
-    padding: 0.5rem;
-    transition: 0.25s linear;
-  }
-  &__spin {
-    @include size(4rem);
-    background-color: #fff;
-    border-radius: 4rem;
-    transition: 0.25s linear;
+    position: relative;
+    padding-left: 5rem;
+    &::before {
+      content: "";
+      @include size(4rem);
+      background-color: #fc556f;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      border-radius: 1rem;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 1rem;
+      @include size(2rem, 1rem);
+      transform: rotate(-45deg);
+      border-left: 3px solid #fff;
+      border-bottom: 3px solid #fff;
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.25s linear;
+    }
   }
 }
 

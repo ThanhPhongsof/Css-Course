@@ -34,30 +34,30 @@ $gradient: linear-gradient(to right, $warning, $danger);
   flex-wrap: $wrap;
 }
 
-.checkbox {
+.radio {
+  margin: 5rem;
   &__input {
     display: none;
-    &:checked + .checkbox__label {
-      background-color: $primary;
-      .checkbox__spin {
-        transform: translateX(6rem);
-      }
+    &:checked + .radio__label:before {
+      background-color: #fc556f;
+      box-shadow: 0 0 0 5px #fff, 0 0 0 6px #fc556f;
     }
   }
   &__label {
-    display: inline-block;
-    @include size(10rem, 4rem);
-    background-color: #ccc;
-    border-radius: 5rem;
-    cursor: pointer;
-    padding: 0.5rem;
-    transition: 0.25s linear;
-  }
-  &__spin {
-    @include size(4rem);
-    background-color: #fff;
-    border-radius: 4rem;
-    transition: 0.25s linear;
+    position: relative;
+    padding-left: 5rem;
+    &::before {
+      content: "";
+      @include size(2.5rem);
+      border-radius: 3rem;
+      background-color: #eff1f5;
+      box-shadow: 0 0 0 5px #eff1f5, 0 0 0 6px #b7c1cb;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: 0.25s ease;
+    }
   }
 }
 
