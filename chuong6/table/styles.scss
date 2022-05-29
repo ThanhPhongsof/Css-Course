@@ -1,0 +1,167 @@
+$primary: #42a7fe;
+$secondary: #00c899;
+$warning: #fd9c84;
+$warningv2: #f7c539;
+$danger: #fc556f;
+$redFA4: #fa4c53;
+$dark: #291667;
+$gray8c9: #8c94a7;
+
+$gradient: linear-gradient(to right, $warning, $danger);
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin maxWidth($value) {
+  @media screen and (max-width: $value) {
+    @content;
+  }
+}
+
+@mixin minWidth($value) {
+  @media screen and (min-width: $value) {
+    @content;
+  }
+}
+
+@mixin flexbox(
+  $align: flex-start,
+  $justify: flex-start,
+  $flex-direction: row,
+  $wrap: nowrap
+) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+  flex-direction: $flex-direction;
+  flex-wrap: $wrap;
+}
+
+div,
+input {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.4rem;
+  font-weight: normal;
+  background-color: #fbfbfd;
+  min-height: 100vh;
+}
+
+body,
+input,
+select,
+textarea,
+label {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.6rem;
+  font-weight: normal;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+table {
+  width: 100%;
+  th {
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  td,
+  th {
+    color: $gray8c9;
+    text-align: center;
+    padding: 2rem;
+  }
+  thead tr {
+    border-bottom: 1px solid #ccc;
+  }
+  .desc {
+    white-space: nowrap;
+    max-width: 15rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .status {
+    display: inline-block;
+    padding: 1rem 3rem;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 20px;
+    &--secondary {
+      color: $secondary;
+      background-color: rgba($secondary, 0.2);
+    }
+    &--warning {
+      color: $warningv2;
+      background-color: rgba($warningv2, 0.2);
+    }
+    &--danger {
+      color: $danger;
+      background-color: rgba($danger, 0.2);
+    }
+  }
+  .action {
+    display: flex;
+    &-icon {
+      cursor: pointer;
+      margin: 0 5px;
+    }
+  }
+  .toggle {
+    &-input {
+      display: none;
+      &:checked + .toggle-label {
+        background-color: #2979ff;
+        &::before {
+          background-color: $primary;
+          transform: translate(3rem, -50%);
+        }
+      }
+    }
+    &-label {
+      @include size(5rem, 5px);
+      border-radius: 1rem;
+      background-color: #ccc;
+      display: inline-block;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.25s linear;
+      &::before {
+        content: "";
+        position: absolute;
+        @include size(2rem);
+        border-radius: 2rem;
+        background-color: #ccc;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: all 0.25s linear;
+      }
+    }
+  }
+}
+
+@include maxWidth(1439px) {
+}
+
+@include maxWidth(1279px) {
+  .table {
+    width: 100%;
+    overflow-x: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}

@@ -1,9 +1,11 @@
 $primary: #42a7fe;
 $secondary: #00c899;
 $warning: #fd9c84;
+$warningv2: #f7c539;
 $danger: #fc556f;
 $redFA4: #fa4c53;
 $dark: #291667;
+$gray8c9: #8c94a7;
 
 $gradient: linear-gradient(to right, $warning, $danger);
 
@@ -47,7 +49,6 @@ body {
   font-size: 1.4rem;
   font-weight: normal;
   background-color: #fbfbfd;
-  padding: 5rem;
   min-height: 100vh;
 }
 
