@@ -1,0 +1,76 @@
+$primary: #42a7fe;
+$secondary: #00c899;
+$warning: #fd9c84;
+$danger: #fc556f;
+$gradient: linear-gradient(to right, $warning, $danger);
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin maxWidth($value) {
+  @media screen and (max-width: $value) {
+    @content;
+  }
+}
+
+@mixin minWidth($value) {
+  @media screen and (min-width: $value) {
+    @content;
+  }
+}
+
+@mixin flexbox(
+  $align: flex-start,
+  $justify: flex-start,
+  $flex-direction: row,
+  $wrap: nowrap
+) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+  flex-direction: $flex-direction;
+  flex-wrap: $wrap;
+}
+
+.checkbox {
+  &__input {
+    display: none;
+    &:checked + .checkbox__label {
+      background-color: $primary;
+      .checkbox__spin {
+        transform: translateX(6rem);
+      }
+    }
+  }
+  &__label {
+    display: inline-block;
+    @include size(10rem, 4rem);
+    background-color: #ccc;
+    border-radius: 5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: 0.25s linear;
+  }
+  &__spin {
+    @include size(4rem);
+    background-color: #fff;
+    border-radius: 4rem;
+    transition: 0.25s linear;
+  }
+}
+
+@include maxWidth(767px) {
+}
+
+@include minWidth(768px) {
+}
+
+@media screen and (min-width: 1024) {
+}
+
+@media screen and (min-width: 1280) {
+}
+
+// 320 480 768 1024 1280 1366 1440 1600 1920

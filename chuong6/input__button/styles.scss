@@ -1,0 +1,98 @@
+$primary: #42a7fe;
+$secondary: #00c899;
+$warning: #fd9c84;
+$danger: #fc556f;
+$gradient: linear-gradient(to right, $warning, $danger);
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin maxWidth($value) {
+  @media screen and (max-width: $value) {
+    @content;
+  }
+}
+
+@mixin minWidth($value) {
+  @media screen and (min-width: $value) {
+    @content;
+  }
+}
+
+@mixin flexbox(
+  $align: flex-start,
+  $justify: flex-start,
+  $flex-direction: row,
+  $wrap: nowrap
+) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+  flex-direction: $flex-direction;
+  flex-wrap: $wrap;
+}
+
+.input__style {
+  --color-placeholder: #b7c1cb;
+  --color-type: #0e1e35;
+  --color-focus: #ff695a;
+  --color-boxshadow: #ffe1de;
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid var(--color-placeholder);
+  width: 100%;
+  color: var(--color-type);
+  font-size: 1.6rem;
+  outline: none;
+  transition: all 0.25s linear;
+  resize: none;
+  &::-webkit-input-placeholder {
+    color: var(--color-placeholder);
+  }
+  &:focus {
+    border-color: var(--color-focus);
+    box-shadow: 0 0 0 4px #ffe1de;
+  }
+}
+
+.button__style {
+  --background: #fd607d;
+  --background-hover: #ffe1de;
+  width: 100%;
+  padding: 2rem;
+  border-radius: 8px;
+  border: 0;
+  outline: none;
+  font-weight: 600;
+  font-size: 1.8rem;
+  cursor: pointer;
+  margin-top: 2rem;
+  color: #fff;
+  background-color: var(--background);
+  transition: all 0.25s linear;
+  box-shadow: 0 5px 0 0 #93263a;
+  &:hover {
+    background-color: var(--background-hover);
+    color: var(--background);
+  }
+  &:active {
+    transform: translateY(3px);
+    box-shadow: 0 2px 0 0 #93263a;
+  }
+}
+
+@include maxWidth(767px) {
+}
+
+@include minWidth(768px) {
+}
+
+@media screen and (min-width: 1024) {
+}
+
+@media screen and (min-width: 1280) {
+}
+
+// 320 480 768 1024 1280 1366 1440 1600 1920

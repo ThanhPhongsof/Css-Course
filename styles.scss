@@ -2,6 +2,9 @@ $primary: #42a7fe;
 $secondary: #00c899;
 $warning: #fd9c84;
 $danger: #fc556f;
+$redFA4: #fa4c53;
+$dark: #291667;
+
 $gradient: linear-gradient(to right, $warning, $danger);
 
 @mixin size($width, $height: $width) {
@@ -34,43 +37,41 @@ $gradient: linear-gradient(to right, $warning, $danger);
   flex-wrap: $wrap;
 }
 
-.checkbox {
-  &__input {
-    display: none;
-    &:checked + .checkbox__label {
-      background-color: $primary;
-      .checkbox__spin {
-        transform: translateX(6rem);
-      }
-    }
-  }
-  &__label {
-    display: inline-block;
-    @include size(10rem, 4rem);
-    background-color: #ccc;
-    border-radius: 5rem;
-    cursor: pointer;
-    padding: 0.5rem;
-    transition: 0.25s linear;
-  }
-  &__spin {
-    @include size(4rem);
-    background-color: #fff;
-    border-radius: 4rem;
-    transition: 0.25s linear;
-  }
+div,
+input {
+  box-sizing: border-box;
 }
 
-@include maxWidth(767px) {
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.4rem;
+  font-weight: normal;
+  background-color: #fbfbfd;
+  padding: 5rem;
+  min-height: 100vh;
 }
 
-@include minWidth(768px) {
+body,
+input,
+select,
+textarea,
+label {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.6rem;
+  font-weight: normal;
 }
 
-@media screen and (min-width: 1024) {
+a {
+  text-decoration: none;
 }
 
-@media screen and (min-width: 1280) {
+img {
+  display: block;
+  max-width: 100%;
 }
 
-// 320 480 768 1024 1280 1366 1440 1600 1920
+@include maxWidth(1439px) {
+}
+
+@include maxWidth(1279px) {
+}
