@@ -37,27 +37,27 @@ $gradient: linear-gradient(to right, $warning, $danger);
   flex-wrap: $wrap;
 }
 
-div,
-input {
+*,
+*:before,
+*:after{
   box-sizing: border-box;
 }
 
 body {
   font-family: "Poppins", sans-serif;
-  font-size: 1.4rem;
+  font-size: 1;
   font-weight: normal;
   background-color: #fbfbfd;
   padding: 5rem;
   min-height: 100vh;
 }
 
-body,
 input,
 select,
 textarea,
 label {
   font-family: "Poppins", sans-serif;
-  font-size: 1.6rem;
+  font-size: 1;
   font-weight: normal;
 }
 
@@ -68,6 +68,8 @@ a {
 img {
   display: block;
   max-width: 100%;
+  width:100%;
+  height:100%;
 }
 
 .signup {
@@ -76,12 +78,14 @@ img {
   background-color: white;
   border-radius: 20px;
   box-shadow: 0 0 10px 5px rgba(black, 0.1);
-  padding: 10rem;
   display: flex;
   justify-content: space-between;
   &__content,
   &__image {
     width: calc(50% - 4rem);
+  }
+  &__content{
+    padding:10rem 0 10rem 10rem;
   }
   &__heading {
     font-weight: bold;
@@ -245,11 +249,19 @@ img {
     padding: 2rem;
     &__content {
       width: 100%;
+      padding:0;
     }
     &__image {
       display: none;
     }
+    &__heading{
+      font-size:3.5rem;
+    }
+    &__caption{
+      margin-bottom:1.5rem;
+    }
     &-social {
+      margin-bottom:2rem;
       flex-direction: column;
       &__item {
         width: 100%;
