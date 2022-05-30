@@ -5,7 +5,6 @@ $warningv2: #f7c539;
 $danger: #fc556f;
 $redFA4: #fa4c53;
 $dark: #291667;
-$darkcore: #131933;
 $gray8c9: #8c94a7;
 
 $gradient: linear-gradient(to right, $warning, $danger);
@@ -50,7 +49,9 @@ body {
   font-family: "Poppins", sans-serif;
   font-size: 1rem;
   font-weight: normal;
-  background-color: $darkcore;
+  background-color: #fbfbfd;
+  color: #fff;
+  min-height: 100vh;
 }
 
 input,
@@ -60,7 +61,6 @@ label {
   font-family: "Poppins", sans-serif;
   font-size: 1;
   font-weight: normal;
-  outline: none;
 }
 
 a {
@@ -73,8 +73,22 @@ img {
   width: 100%;
   height: 100%;
 }
-:root {
-  --ratio: 16/9;
+
+.container {
+  max-width: 80rem;
+  margin: 0 auto;
+  height: 50rem;
+  position: relative;
+  &:before {
+    content: "";
+    position: absolute;
+    @include size(100%);
+    background-image: linear-gradient(to right bottom, #07047e, #1a3bda);
+    transform: skewY(-5deg) translateY(-6rem);
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
 }
 
 @include maxWidth(1439px) {

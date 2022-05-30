@@ -73,8 +73,34 @@ img {
   width: 100%;
   height: 100%;
 }
-:root {
-  --ratio: 16/9;
+
+.boxed {
+  @include size(10rem, 4rem);
+  margin: 3rem;
+  border: 10px solid;
+  border-image-source: linear-gradient(to right bottom, $danger, $warning);
+  border-image-slice: 1;
+}
+
+.boxed2 {
+  @include size(5rem, 5rem);
+  margin: 3rem;
+  border-radius: 5rem;
+  box-shadow: -2px -2px 0 2px $danger, 0 0 0 4px $warning;
+}
+
+.boxed3 {
+  @include size(5rem, 5rem);
+  margin: 3rem;
+  border-radius: 5rem;
+  padding: 5px;
+  background-image: linear-gradient(to right bottom, $danger, $warning);
+  &-child {
+    width: 100%;
+    height: 100%;
+    background-color: $darkcore;
+    border-radius: 5rem;
+  }
 }
 
 @include maxWidth(1439px) {

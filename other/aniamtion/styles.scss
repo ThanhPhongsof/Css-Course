@@ -73,8 +73,38 @@ img {
   width: 100%;
   height: 100%;
 }
-:root {
-  --ratio: 16/9;
+
+.loading {
+  margin: 5rem auto;
+  @include size(5rem);
+  position: relative;
+  div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(calc(var(--value) * 45deg));
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      @include size(1rem);
+      border: 4px solid $primary;
+      border-radius: 5rem;
+      filter: hue-rotate(calc(var(--value) * 45deg));
+      animation: loading 1s infinite;
+      animation-delay: calc((var(--value) * 0.125s));
+      animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    }
+  }
+}
+
+@keyframes loading {
+  to {
+    transform: scale(0);
+  }
 }
 
 @include maxWidth(1439px) {

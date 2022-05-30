@@ -8,8 +8,7 @@ body {
   font-family: "Poppins", sans-serif;
   font-size: 1rem;
   font-weight: normal;
-  background-color: #fbfbfd;
-  min-height: 100vh;
+  background-color: #131933;
 }
 
 input,
@@ -19,6 +18,7 @@ label {
   font-family: "Poppins", sans-serif;
   font-size: 1;
   font-weight: normal;
+  outline: none;
 }
 
 a {
@@ -28,6 +28,32 @@ a {
 img {
   display: block;
   max-width: 100%;
+  width: 100%;
+  height: 100%;
+}
+
+:root {
+  --ratio: 16/9;
+}
+
+.media {
+  height: 0;
+  position: relative;
+  padding-bottom: calc(100% / (var(--ratio)));
+}
+.media iframe {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.media img {
+  position: absolute;
+  object-fit: cover;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
 }
