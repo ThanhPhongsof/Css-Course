@@ -1,23 +1,23 @@
-div,
-input {
+*,
+*:before,
+*:after {
   box-sizing: border-box;
 }
 
 body {
   font-family: "Poppins", sans-serif;
-  font-size: 1.4rem;
+  font-size: 1rem;
   font-weight: normal;
   background-color: #fbfbfd;
   min-height: 100vh;
 }
 
-body,
 input,
 select,
 textarea,
 label {
   font-family: "Poppins", sans-serif;
-  font-size: 1.6rem;
+  font-size: 1;
   font-weight: normal;
 }
 
@@ -28,98 +28,8 @@ a {
 img {
   display: block;
   max-width: 100%;
-}
-
-table {
   width: 100%;
-}
-table th {
-  text-transform: uppercase;
-  font-weight: 600;
-}
-table td,
-table th {
-  color: #8c94a7;
-  text-align: center;
-  padding: 2rem;
-}
-table thead tr {
-  border-bottom: 1px solid #ccc;
-}
-table .desc {
-  white-space: nowrap;
-  max-width: 15rem;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-table .status {
-  display: inline-block;
-  padding: 1rem 3rem;
-  text-align: center;
-  font-size: 1.2rem;
-  font-weight: bold;
-  border-radius: 20px;
-}
-table .status--secondary {
-  color: #00c899;
-  background-color: rgba(0, 200, 153, 0.2);
-}
-table .status--warning {
-  color: #f7c539;
-  background-color: rgba(247, 197, 57, 0.2);
-}
-table .status--danger {
-  color: #fc556f;
-  background-color: rgba(252, 85, 111, 0.2);
-}
-table .action {
-  display: flex;
-}
-table .action-icon {
-  cursor: pointer;
-  margin: 0 5px;
-}
-table .toggle-input {
-  display: none;
-}
-table .toggle-input:checked + .toggle-label {
-  background-color: #2979ff;
-}
-table .toggle-input:checked + .toggle-label::before {
-  background-color: #42a7fe;
-  transform: translate(3rem, -50%);
-}
-table .toggle-label {
-  width: 5rem;
-  height: 5px;
-  border-radius: 1rem;
-  background-color: #ccc;
-  display: inline-block;
-  position: relative;
-  cursor: pointer;
-  transition: all 0.25s linear;
-}
-table .toggle-label::before {
-  content: "";
-  position: absolute;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 2rem;
-  background-color: #ccc;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  transition: all 0.25s linear;
-}
-
-@media screen and (max-width: 1279px) {
-  .table {
-    width: 100%;
-    overflow-x: auto;
-  }
-  .table::-webkit-scrollbar {
-    display: none;
-  }
+  height: 100%;
 }
 
 /*# sourceMappingURL=styles.css.map */
