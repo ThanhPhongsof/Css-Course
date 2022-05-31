@@ -40,11 +40,6 @@ $gradient: linear-gradient(to right, $warning, $danger);
   flex-wrap: $wrap;
 }
 
-@mixin responsiveMedia($x, $y) {
-  $bottom: unquote(($y/$x) * 100+ "%");
-  padding-bottom: $bottom;
-}
-
 *,
 *:before,
 *:after {
@@ -55,7 +50,7 @@ body {
   font-family: "Poppins", sans-serif;
   font-size: 1rem;
   font-weight: normal;
-  background-color: rgba($color: $darkcore, $alpha: 0.125);
+  background-color: $darkcore;
 }
 
 input,
@@ -80,11 +75,17 @@ img {
   object-fit: cover;
 }
 
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  // grid-gap: grid-row-gap grid-column-gap
+  grid-gap: 20px;
+}
+
 @include maxWidth(1439px) {
 }
 
 @include maxWidth(1279px) {
-}
-
-@include maxWidth(1223px) {
 }

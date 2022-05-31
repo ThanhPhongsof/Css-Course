@@ -1,0 +1,178 @@
+$primary: #42a7fe;
+$secondary: #00c899;
+$warning: #fd9c84;
+$warningv2: #f7c539;
+$danger: #fc556f;
+$redFA4: #fa4c53;
+$dark: #291667;
+$darkcore: #131933;
+$gray8c9: #8c94a7;
+
+$gradient: linear-gradient(to right, $warning, $danger);
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin maxWidth($value) {
+  @media screen and (max-width: $value) {
+    @content;
+  }
+}
+
+@mixin minWidth($value) {
+  @media screen and (min-width: $value) {
+    @content;
+  }
+}
+
+@mixin flexbox(
+  $align: flex-start,
+  $justify: flex-start,
+  $flex-direction: row,
+  $wrap: nowrap
+) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+  flex-direction: $flex-direction;
+  flex-wrap: $wrap;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: normal;
+  background-color: rgba($color: $darkcore, $alpha: 0.125);
+}
+
+input,
+select,
+textarea,
+label {
+  font-family: "Poppins", sans-serif;
+  font-size: 1;
+  font-weight: normal;
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.grid-layout div {
+  padding: 5rem;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 2rem;
+  text-align: center;
+}
+.header {
+  background-color: $darkcore;
+}
+.menu {
+  background-color: $warningv2;
+}
+.hero {
+  background-color: $dark;
+}
+.main {
+  background-color: $warning;
+}
+.banner {
+  background-color: $secondary;
+}
+.extra {
+  background-color: $primary;
+}
+.image {
+  background-color: $danger;
+}
+
+@include maxWidth(1439px) {
+}
+
+@include maxWidth(1279px) {
+  .grid-layout {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 10rem 30rem 10rem 10rem 10rem;
+    grid-template-areas:
+      "header menu menu menu"
+      "hero hero hero hero"
+      "main main . image"
+      "main main . extra"
+      "banner banner banner banner";
+  }
+  .header {
+    grid-area: header;
+  }
+  .menu {
+    grid-area: menu;
+  }
+  .hero {
+    grid-area: hero;
+  }
+  .main {
+    grid-area: main;
+  }
+  .banner {
+    grid-area: banner;
+  }
+  .extra {
+    grid-area: extra;
+  }
+  .image {
+    grid-area: image;
+  }
+}
+
+@include maxWidth(1223px) {
+  .grid-layout {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 10rem 30rem 30rem 15rem 15rem;
+    grid-template-areas:
+      "header header header header"
+      "hero hero hero hero"
+      "menu main main main"
+      "menu banner banner banner"
+      "menu extra extra image";
+  }
+  .header {
+    grid-area: header;
+  }
+  .menu {
+    grid-area: menu;
+  }
+  .hero {
+    grid-area: hero;
+  }
+  .main {
+    grid-area: main;
+  }
+  .banner {
+    grid-area: banner;
+  }
+  .extra {
+    grid-area: extra;
+  }
+  .image {
+    grid-area: image;
+  }
+}

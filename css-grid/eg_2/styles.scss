@@ -40,11 +40,6 @@ $gradient: linear-gradient(to right, $warning, $danger);
   flex-wrap: $wrap;
 }
 
-@mixin responsiveMedia($x, $y) {
-  $bottom: unquote(($y/$x) * 100+ "%");
-  padding-bottom: $bottom;
-}
-
 *,
 *:before,
 *:after {
@@ -55,7 +50,7 @@ body {
   font-family: "Poppins", sans-serif;
   font-size: 1rem;
   font-weight: normal;
-  background-color: rgba($color: $darkcore, $alpha: 0.125);
+  background-color: $darkcore;
 }
 
 input,
@@ -80,11 +75,53 @@ img {
   object-fit: cover;
 }
 
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 20rem);
+  grid-gap: 2rem;
+  grid-column: 1/3;
+  padding: 4rem;
+  &__item:first-child {
+    grid-column: 1/3;
+    grid-row: 1/3;
+  }
+  &__item:nth-child(4) {
+    grid-column: 1/2;
+  }
+  &__item:nth-child(5) {
+    grid-column: 2/3;
+  }
+  &__item:last-child {
+    grid-column: 3/-1;
+    grid-row: 2/-1;
+  }
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 20rem);
+  grid-gap: 2rem;
+  grid-column: 1/3;
+  padding: 4rem;
+  grid-template-areas: "h1 h1 h2 h3" "h1 h1 h6 h6" "h4 h5 h6 h6";
+  &__item:first-child {
+    grid-area: h1;
+  }
+  &__item:nth-child(4) {
+    grid-area: h4;
+  }
+  &__item:nth-child(5) {
+    grid-area: h5;
+  }
+  &__item:last-child {
+    grid-area: h6;
+  }
+}
+
 @include maxWidth(1439px) {
 }
 
 @include maxWidth(1279px) {
-}
-
-@include maxWidth(1223px) {
 }
