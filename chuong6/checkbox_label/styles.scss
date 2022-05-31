@@ -51,17 +51,11 @@ $gradient: linear-gradient(to right, $warning, $danger);
   box-sizing: border-box;
 }
 
-html {
-  font-size: 62.5%;
-}
-
 body {
   font-family: "Poppins", sans-serif;
-  font-size: 12px;
-  line-height: 1.5;
+  font-size: 1rem;
   font-weight: normal;
   background-color: rgba($color: $darkcore, $alpha: 0.005);
-  padding: 20px;
 }
 
 input,
@@ -84,6 +78,34 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.custom-checkbox {
+  @include flexbox(center);
+  margin: 25px auto;
+  width: max-content;
+  &-input {
+    display: none;
+    &:checked + .custom-checkbox-box {
+      background-color: $dark;
+      .custom-checkbox-icon {
+        color: $danger;
+      }
+    }
+  }
+  &-box {
+    @include size(40px);
+    border: 1px solid #eee;
+    border-radius: 4px;
+    @include flexbox(center, center);
+    transition: all 0.25s linear;
+  }
+  &-icon {
+    transition: all 0.25s linear;
+  }
+  &-label {
+    cursor: pointer;
+  }
 }
 
 @include maxWidth(1439px) {

@@ -86,6 +86,51 @@ img {
   object-fit: cover;
 }
 
+table {
+  width: 100%;
+  th,
+  td {
+    padding: 15px 30px;
+    text-align: left;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+  th {
+    background-color: #f1f7fd;
+    color: #364d67;
+    font-weight: 600;
+  }
+  td {
+    background-color: #fff;
+  }
+  tbody tr {
+    border-top: 1px solid #f0f4f8;
+  }
+  .user {
+    display: flex;
+    align-items: center;
+    gap: 0 10px;
+    img {
+      @include size(50px);
+      border-radius: 100rem;
+      flex-shrink: 0;
+    }
+  }
+}
+
+.sticky-table {
+  overflow: auto;
+  border: 1px solid #f0f4f8;
+  tbody td:first-child,
+  thead th:first-child {
+    position: sticky;
+    left: 0;
+  }
+  tbody td:first-child span {
+    padding-right: 50px;
+  }
+}
+
 @include maxWidth(1439px) {
 }
 

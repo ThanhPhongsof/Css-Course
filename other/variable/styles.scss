@@ -51,17 +51,11 @@ $gradient: linear-gradient(to right, $warning, $danger);
   box-sizing: border-box;
 }
 
-html {
-  font-size: 62.5%;
-}
-
 body {
   font-family: "Poppins", sans-serif;
-  font-size: 12px;
-  line-height: 1.5;
+  font-size: 1rem;
   font-weight: normal;
-  background-color: rgba($color: $darkcore, $alpha: 0.005);
-  padding: 20px;
+  background-color: rgba($color: $darkcore, $alpha: 0.125);
 }
 
 input,
@@ -69,7 +63,7 @@ select,
 textarea,
 label {
   font-family: "Poppins", sans-serif;
-  font-size: 1rem;
+  font-size: 1;
   font-weight: normal;
   outline: none;
 }
@@ -86,6 +80,26 @@ img {
   object-fit: cover;
 }
 
+.card {
+  --card-image-height: 200px;
+  --card-content-padding: 20px;
+  --card-title-color: #000;
+  width: 300px;
+  margin: 25px auto;
+  border: 1px solid #ccc;
+  &-image {
+    height: var(--card-image-height);
+    width: 100%;
+    object-fit: cover;
+  }
+  &-content {
+    padding: var(--card-content-padding);
+  }
+  &-title {
+    color: var(--card-title-color);
+  }
+}
+
 @include maxWidth(1439px) {
 }
 
@@ -96,4 +110,9 @@ img {
 }
 
 @include maxWidth(767px) {
+  .card {
+    --card-image-height: 150px;
+    --card-content-padding: 15px;
+    --card-title-color: #fc556f;
+  }
 }
